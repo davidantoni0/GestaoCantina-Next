@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Coxinha de Frango",
+    "description": "Coxinha crocante recheada com frango desfiado e temperos.",
+    "price": 8.5,
+    "category": "salgados",
+    "image": "/images/coxinha.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Pastel de Carne",
+    "description": "Pastel frito e crocante recheado com carne temperada.",
+    "price": 9.0,
+    "category": "salgados",
+    "image": "/images/pastel-carne.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Empada de Frango",
+    "description": "Massa leve e dourada com recheio cremoso de frango.",
+    "price": 7.5,
+    "category": "salgados",
+    "image": "/images/empada.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Refrigerante Lata",
+    "description": "Refrigerante gelado em lata de 350ml.",
+    "price": 6.0,
+    "category": "bebidas",
+    "image": "/images/refrigerante.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Suco de Laranja",
+    "description": "Suco natural de laranja.",
+    "price": 8.0,
+    "category": "bebidas",
+    "image": "/images/suco-laranja.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Brigadeiro",
+    "description": "Brigadeiro tradicional feito com chocolate e leite condensado.",
+    "price": 4.5,
+    "category": "doces",
+    "image": "/images/brigadeiro.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Brownie",
+    "description": "Brownie de chocolate com textura macia e intensa.",
+    "price": 7.0,
+    "category": "doces",
+    "image": "/images/brownie.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Combo Coxinha + Refrigerante",
+    "description": "Uma coxinha de frango acompanhada de refrigerante em lata.",
+    "price": 13.0,
+    "category": "combos",
+    "image": "/images/combo-coxinha.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Combo Pastel + Suco",
+    "description": "Pastel de carne acompanhado de suco natural de laranja.",
+    "price": 15.0,
+    "category": "combos",
+    "image": "/images/combo-pastel.jpg"
+  }
+]

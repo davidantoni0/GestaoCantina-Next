@@ -1,11 +1,21 @@
-import { CardProdutos } from "../components/CardProdutos" 
+import { ListarProdutos } from "../components/ListarProdutos"
 
 export default function HomePage () {
     return (
-        <main className="bg-blue-800 text-center font-bold p-2 m-2 w-fit rounded-2xl"> 
+        <main className="bg-blue-800 text-center font-bold p-2 m-2 rounded-2xl"> 
             <h1> Cantina SENAI </h1>
-            <CardProdutos/>
-        </main>
+                <div className="flex">
+                    <section>
+                        <ListarProdutos/>
+                    </section>
 
-    )
+                    <section>
+                        <div>
+                            <h1> TESTE DE LAYOUT </h1>
+                        </div>
+                    </section>
+                </div>
+                
+        </main>
+    );
 }
