@@ -1,12 +1,10 @@
-import { CardProdutos } from "../components/CardProdutos" 
+import { ListarProdutos } from "../components/ListarProdutos"
 
 export default function HomePage () {
     return (
         <main className="bg-gray-600"> 
             <h1> Cantina SENAI </h1>
-            <CardProdutos/>
+            <ListarProdutos/>
         </main>
-
-
     )
 }
