@@ -6,3 +6,8 @@ export type Product = {
   category: string;
   image: string;
 };
+
+export type CartItem = {
+  productId: number;
+  quantity: number;
+};
