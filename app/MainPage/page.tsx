@@ -5,11 +5,15 @@ import { ListarCompra } from "../components/ListarCompra"
 import { ConfirmarCompra } from "../components/ConfirmarCompra"
 import { ReciboCompra, Pedido } from "../components/ReciboCompra"
 import { CartItem } from "../types/Product"
+import { montarLinhas, calcularTotal, formatarPreco } from "../utils/carrinho"
 
 export default function HomePage () {
     const [carrinho, setCarrinho] = useState<CartItem[]>([]);
     const [confirmando, setConfirmando] = useState(false);
     const [pedido, setPedido] = useState<Pedido | null>(null);
+
+    const quantidadeTotal = carrinho.reduce((soma, item) => soma + item.quantity, 0);
+    const total = calcularTotal(montarLinhas(carrinho));
 
     function handleAddToCart(productId: number) {
         setCarrinho((itensAtuais) => {
@@ -83,35 +87,60 @@ export default function HomePage () {
 
     return (
         <>
-            <main className="bg-blue-800 text-center font-bold p-2 m-2 rounded-2xl print:hidden"> 
-                <h1> Cantina SENAI </h1>
+            <div className="min-h-screen bg-zinc-100 print:hidden">
+                <header className="sticky top-0 z-10 bg-blue-800 px-4 py-4 text-center shadow-md sm:px-6">
+                    <h1 className="text-xl font-bold text-white sm:text-2xl">
+                        Cantina SENAI
+                    </h1>
+                    <p className="mt-0.5 text-xs text-blue-200 sm:text-sm">
+                        Monte seu pedido antes de chegar ao balcão
+                    </p>
+                </header>
 
-                    {confirmando ? (
-                        <div className="p-2">
-                            <ConfirmarCompra
+                {confirmando ? (
+                    <div className="mx-auto w-full max-w-2xl px-4 py-6 sm:px-6">
+                        <ConfirmarCompra
+                            items={carrinho}
+                            onVoltar={() => setConfirmando(false)}
+                            onConfirmar={handleConfirmar}
+                        />
+                    </div>
+                ) : (
+                    // Uma coluna no celular; produtos + carrinho lado a lado a partir do lg.
+                    <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start lg:gap-6 xl:grid-cols-[1fr_22rem]">
+                        <section>
+                            <ListarProdutos onAddToCart={handleAddToCart}/>
+                        </section>
+
+                        {/* pb-24 no celular para a barra fixa nao cobrir o botao */}
+                        <section
+                            id="pedido"
+                            className="mt-6 pb-24 lg:mt-0 lg:sticky lg:top-24 lg:pb-0"
+                        >
+                            <ListarCompra
                                 items={carrinho}
-                                onVoltar={() => setConfirmando(false)}
-                                onConfirmar={handleConfirmar}
+                                onAumentar={handleAumentar}
+                                onDiminuir={handleDiminuir}
+                                onFinalizar={() => setConfirmando(true)}
                             />
-                        </div>
-                    ) : (
-                        <div className="flex">
-                            <section>
-                                <ListarProdutos onAddToCart={handleAddToCart}/>
-                            </section>
+                        </section>
+                    </div>
+                )}
+            </div>
 
-                            <section className="w-80 shrink-0 p-2">
-                                <ListarCompra
-                                    items={carrinho}
-                                    onAumentar={handleAumentar}
-                                    onDiminuir={handleDiminuir}
-                                    onFinalizar={() => setConfirmando(true)}
-                                />
-                            </section>
-                        </div>
-                    )}
-                    
-            </main>
+            {/* Atalho so no celular: leva direto ao carrinho la embaixo. */}
+            {!confirmando && quantidadeTotal > 0 && (
+                <a
+                    href="#pedido"
+                    className="fixed inset-x-0 bottom-0 z-20 flex items-center justify-between gap-4 bg-blue-700 px-5 py-4 text-white shadow-lg lg:hidden print:hidden"
+                >
+                    <span className="text-sm font-medium">
+                        Ver pedido · {quantidadeTotal}{" "}
+                        {quantidadeTotal === 1 ? "item" : "itens"}
+                    </span>
+                    <span className="text-sm font-bold">{formatarPreco(total)}</span>
+                </a>
+            )}
 
             {pedido && <ReciboCompra pedido={pedido}/>}
         </>
