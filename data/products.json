@@ -5,7 +5,7 @@
     "description": "Coxinha crocante recheada com frango desfiado e temperos.",
     "price": 8.5,
     "category": "salgados",
-    "image": "/images/coxinha.jpg"
+    "image": "/images/coxinha.svg"
   },
   {
     "id": 2,
@@ -13,7 +13,7 @@
     "description": "Pastel frito e crocante recheado com carne temperada.",
     "price": 9.0,
     "category": "salgados",
-    "image": "/images/pastel-carne.jpg"
+    "image": "/images/pastel-carne.svg"
   },
   {
     "id": 3,
@@ -21,54 +21,134 @@
     "description": "Massa leve e dourada com recheio cremoso de frango.",
     "price": 7.5,
     "category": "salgados",
-    "image": "/images/empada.jpg"
+    "image": "/images/empada.svg"
   },
   {
     "id": 4,
+    "name": "Pão de Queijo",
+    "description": "Pão de queijo mineiro, quentinho e macio por dentro.",
+    "price": 5.0,
+    "category": "salgados",
+    "image": "/images/pao-de-queijo.svg"
+  },
+  {
+    "id": 5,
+    "name": "Esfiha de Carne",
+    "description": "Esfiha aberta assada na hora com carne temperada.",
+    "price": 7.0,
+    "category": "salgados",
+    "image": "/images/esfiha.svg"
+  },
+  {
+    "id": 6,
     "name": "Refrigerante Lata",
     "description": "Refrigerante gelado em lata de 350ml.",
     "price": 6.0,
     "category": "bebidas",
-    "image": "/images/refrigerante.jpg"
+    "image": "/images/refrigerante.svg"
   },
   {
-    "id": 5,
+    "id": 7,
     "name": "Suco de Laranja",
-    "description": "Suco natural de laranja.",
+    "description": "Suco natural de laranja feito na hora.",
     "price": 8.0,
     "category": "bebidas",
-    "image": "/images/suco-laranja.jpg"
+    "image": "/images/suco-laranja.svg"
   },
   {
-    "id": 6,
+    "id": 8,
+    "name": "Suco de Uva",
+    "description": "Suco natural de uva integral, sem açúcar adicionado.",
+    "price": 8.0,
+    "category": "bebidas",
+    "image": "/images/suco-uva.svg"
+  },
+  {
+    "id": 9,
+    "name": "Água Mineral",
+    "description": "Garrafa de água mineral sem gás de 500ml.",
+    "price": 4.0,
+    "category": "bebidas",
+    "image": "/images/agua.svg"
+  },
+  {
+    "id": 10,
+    "name": "Café",
+    "description": "Café coado quentinho servido em copo de 200ml.",
+    "price": 5.0,
+    "category": "bebidas",
+    "image": "/images/cafe.svg"
+  },
+  {
+    "id": 11,
     "name": "Brigadeiro",
     "description": "Brigadeiro tradicional feito com chocolate e leite condensado.",
     "price": 4.5,
     "category": "doces",
-    "image": "/images/brigadeiro.jpg"
+    "image": "/images/brigadeiro.svg"
   },
   {
-    "id": 7,
+    "id": 12,
     "name": "Brownie",
     "description": "Brownie de chocolate com textura macia e intensa.",
     "price": 7.0,
     "category": "doces",
-    "image": "/images/brownie.jpg"
+    "image": "/images/brownie.svg"
   },
   {
-    "id": 8,
+    "id": 13,
+    "name": "Bolo de Cenoura",
+    "description": "Fatia de bolo de cenoura com cobertura de chocolate.",
+    "price": 6.5,
+    "category": "doces",
+    "image": "/images/bolo-cenoura.svg"
+  },
+  {
+    "id": 14,
+    "name": "Misto Quente",
+    "description": "Pão de forma tostado com presunto e queijo derretido.",
+    "price": 10.0,
+    "category": "lanches",
+    "image": "/images/misto-quente.svg"
+  },
+  {
+    "id": 15,
+    "name": "Hambúrguer",
+    "description": "Hambúrguer artesanal com queijo, alface e tomate.",
+    "price": 16.0,
+    "category": "lanches",
+    "image": "/images/hamburguer.svg"
+  },
+  {
+    "id": 16,
+    "name": "Sanduíche Natural",
+    "description": "Sanduíche natural de frango com salada e pão integral.",
+    "price": 11.0,
+    "category": "lanches",
+    "image": "/images/sanduiche-natural.svg"
+  },
+  {
+    "id": 17,
     "name": "Combo Coxinha + Refrigerante",
     "description": "Uma coxinha de frango acompanhada de refrigerante em lata.",
     "price": 13.0,
     "category": "combos",
-    "image": "/images/combo-coxinha.jpg"
+    "image": "/images/combo-coxinha.svg"
   },
   {
-    "id": 9,
+    "id": 18,
     "name": "Combo Pastel + Suco",
     "description": "Pastel de carne acompanhado de suco natural de laranja.",
     "price": 15.0,
     "category": "combos",
-    "image": "/images/combo-pastel.jpg"
+    "image": "/images/combo-pastel.svg"
+  },
+  {
+    "id": 19,
+    "name": "Combo Misto + Suco",
+    "description": "Misto quente acompanhado de suco natural de uva.",
+    "price": 16.5,
+    "category": "combos",
+    "image": "/images/combo-lanche.svg"
   }
 ]

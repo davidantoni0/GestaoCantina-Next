@@ -13,7 +13,7 @@ export function CardProdutos({ product, onAddToCart, }: CardProdutosProps) {
       <img
         src={product.image}
         alt={product.name}
-        className="h-36 w-full bg-gray-100 object-cover sm:h-40"
+        className="aspect-[4/3] w-full bg-gray-100 object-cover"
       />
 
       <div className="flex flex-1 flex-col gap-2 p-4">
