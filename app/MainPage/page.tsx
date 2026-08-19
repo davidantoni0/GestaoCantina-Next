@@ -5,12 +5,12 @@ import { FiltroProdutos } from "../components/FiltroProdutos"
 import { ListarCompra } from "../components/ListarCompra"
 import { ConfirmarCompra } from "../components/ConfirmarCompra"
 import { ReciboCompra, Pedido } from "../components/ReciboCompra"
-import { CartItem } from "../types/Product"
+import { useCarrinhoSalvo } from "../hooks/useCarrinhoSalvo"
 import { montarLinhas, calcularTotal, formatarPreco } from "../utils/carrinho"
 import { CATEGORIA_TODAS } from "../utils/produtos"
 
 export default function HomePage () {
-    const [carrinho, setCarrinho] = useState<CartItem[]>([]);
+    const [carrinho, setCarrinho] = useCarrinhoSalvo();
     const [confirmando, setConfirmando] = useState(false);
     const [pedido, setPedido] = useState<Pedido | null>(null);
     const [busca, setBusca] = useState("");
@@ -87,7 +87,7 @@ export default function HomePage () {
         window.print();
 
         return () => window.removeEventListener("afterprint", limparPedido);
-    }, [pedido]);
+    }, [pedido, setCarrinho]);
 
     return (
         <>
