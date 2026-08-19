@@ -1,16 +1,15 @@
-'use client';
 import products from "@/data/products.json"
 import { CardProdutos } from "./CardProdutos"
 
-export function ListarProdutos(){
-    function handleAddToCart(productId: number) {
-    console.log("Produto adicionado:", productId);
-    }
+type ListarProdutosProps = {
+    onAddToCart: (productId: number) => void;
+};
+
+export function ListarProdutos({ onAddToCart }: ListarProdutosProps){
     return(
         <div className="grid grid-cols-3">
             {products.map((product) => (
-                <CardProdutos key={product.id} product={product} onAddToCart={handleAddToCart}/>
-                
+                <CardProdutos key={product.id} product={product} onAddToCart={onAddToCart}/>
             ))}
         </div>
     )
