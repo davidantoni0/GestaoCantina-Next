@@ -1,16 +1,20 @@
 'use client';
 import { useEffect, useState } from "react"
 import { ListarProdutos } from "../components/ListarProdutos"
+import { FiltroProdutos } from "../components/FiltroProdutos"
 import { ListarCompra } from "../components/ListarCompra"
 import { ConfirmarCompra } from "../components/ConfirmarCompra"
 import { ReciboCompra, Pedido } from "../components/ReciboCompra"
 import { CartItem } from "../types/Product"
 import { montarLinhas, calcularTotal, formatarPreco } from "../utils/carrinho"
+import { CATEGORIA_TODAS } from "../utils/produtos"
 
 export default function HomePage () {
     const [carrinho, setCarrinho] = useState<CartItem[]>([]);
     const [confirmando, setConfirmando] = useState(false);
     const [pedido, setPedido] = useState<Pedido | null>(null);
+    const [busca, setBusca] = useState("");
+    const [categoria, setCategoria] = useState(CATEGORIA_TODAS);
 
     const quantidadeTotal = carrinho.reduce((soma, item) => soma + item.quantity, 0);
     const total = calcularTotal(montarLinhas(carrinho));
@@ -106,25 +110,40 @@ export default function HomePage () {
                         />
                     </div>
                 ) : (
-                    // Uma coluna no celular; produtos + carrinho lado a lado a partir do lg.
-                    <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start lg:gap-6 xl:grid-cols-[1fr_22rem]">
-                        <section>
-                            <ListarProdutos onAddToCart={handleAddToCart}/>
-                        </section>
-
-                        {/* pb-24 no celular para a barra fixa nao cobrir o botao */}
-                        <section
-                            id="pedido"
-                            className="mt-6 pb-24 lg:mt-0 lg:sticky lg:top-24 lg:pb-0"
-                        >
-                            <ListarCompra
-                                items={carrinho}
-                                onAumentar={handleAumentar}
-                                onDiminuir={handleDiminuir}
-                                onFinalizar={() => setConfirmando(true)}
+                    <>
+                        <div className="mx-auto w-full max-w-6xl px-4 pt-6 sm:px-6">
+                            <FiltroProdutos
+                                busca={busca}
+                                categoria={categoria}
+                                onBuscaChange={setBusca}
+                                onCategoriaChange={setCategoria}
                             />
-                        </section>
-                    </div>
+                        </div>
+
+                        {/* Uma coluna no celular; produtos + carrinho lado a lado a partir do lg. */}
+                        <div className="mx-auto w-full max-w-6xl px-4 pb-6 pt-4 sm:px-6 lg:grid lg:grid-cols-[1fr_20rem] lg:items-start lg:gap-6 xl:grid-cols-[1fr_22rem]">
+                            <section>
+                                <ListarProdutos
+                                    busca={busca}
+                                    categoria={categoria}
+                                    onAddToCart={handleAddToCart}
+                                />
+                            </section>
+
+                            {/* pb-24 no celular para a barra fixa nao cobrir o botao */}
+                            <section
+                                id="pedido"
+                                className="mt-6 pb-24 lg:mt-0 lg:sticky lg:top-24 lg:pb-0"
+                            >
+                                <ListarCompra
+                                    items={carrinho}
+                                    onAumentar={handleAumentar}
+                                    onDiminuir={handleDiminuir}
+                                    onFinalizar={() => setConfirmando(true)}
+                                />
+                            </section>
+                        </div>
+                    </>
                 )}
             </div>
 
