@@ -3,9 +3,10 @@ import { Product } from "../types/Product";
 
 type CardProdutosProps = {
   product: Product;
+  onAddToCart: (productId: number) => void;
 };
 
-export function CardProdutos({ product }: CardProdutosProps) {
+export function CardProdutos({ product, onAddToCart, }: CardProdutosProps) {
   return (
     <article className="w-full max-w-sm overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
       <img
@@ -35,6 +36,7 @@ export function CardProdutos({ product }: CardProdutosProps) {
 
         <button
           type="button"
+          onClick={() => onAddToCart(product.id)}
           className="w-full rounded-lg bg-blue-600 px-4 py-3 font-medium text-white transition hover:bg-blue-700"
         >
           Adicionar ao carrinho
