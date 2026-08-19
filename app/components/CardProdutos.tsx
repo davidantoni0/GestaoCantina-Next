@@ -1,4 +1,5 @@
 import { Product } from "../types/Product";
+import { formatarPreco } from "../utils/carrinho";
 
 
 type CardProdutosProps = {
@@ -28,10 +29,7 @@ export function CardProdutos({ product, onAddToCart, }: CardProdutosProps) {
           value={product.price}
           className="text-2xl font-bold text-gray-900"
         >
-          {new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-          }).format(product.price)}
+          {formatarPreco(product.price)}
         </data>
 
         <button
