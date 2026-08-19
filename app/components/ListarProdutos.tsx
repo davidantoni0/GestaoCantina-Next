@@ -3,7 +3,7 @@ import { CardProdutos } from "./CardProdutos"
 
 export function ListarProdutos(){
     return(
-        <div>
+        <div className="grid grid-cols-3">
             {products.map((product) => (
                 <CardProdutos key={product.id} product={product} />
             ))}
