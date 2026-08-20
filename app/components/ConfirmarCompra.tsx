@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { CartItem } from "../types/Product"
 import { montarLinhas, calcularTotal, formatarPreco } from "../utils/carrinho"
 
@@ -14,6 +15,13 @@ export function ConfirmarCompra({
 }: ConfirmarCompraProps) {
   const linhas = montarLinhas(items);
   const total = calcularTotal(linhas);
+  const [enviando, setEnviando] = useState(false);
+
+  function handleConfirmar() {
+    setEnviando(true);
+    // Simula o tempo de processamento da venda antes de emitir o comprovante.
+    setTimeout(() => onConfirmar(), 1200);
+  }
 
   return (
     <section className="mx-auto w-full max-w-md rounded-xl border border-gray-200 bg-white p-6 text-left">
@@ -51,17 +59,22 @@ export function ConfirmarCompra({
         <button
           type="button"
           onClick={onVoltar}
-          className="flex-1 rounded-lg border border-gray-300 px-4 py-3 font-medium text-gray-700 transition hover:bg-gray-100"
+          disabled={enviando}
+          className="flex-1 rounded-lg border border-gray-300 px-4 py-3 font-medium text-gray-700 transition hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Voltar
         </button>
 
         <button
           type="button"
-          onClick={onConfirmar}
-          className="flex-1 rounded-lg bg-blue-600 px-4 py-3 font-medium text-white transition hover:bg-blue-700"
+          onClick={handleConfirmar}
+          disabled={enviando}
+          className="flex flex-1 items-center justify-center gap-2 rounded-lg bg-blue-600 px-4 py-3 font-medium text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-blue-400"
         >
-          Confirmar
+          {enviando && (
+            <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white" />
+          )}
+          {enviando ? "Processando..." : "Confirmar"}
         </button>
       </div>
     </section>
