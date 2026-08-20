@@ -41,6 +41,30 @@
   },
   {
     "id": 6,
+    "name": "Misto Quente",
+    "description": "Pão de forma tostado com presunto e queijo derretido.",
+    "price": 10.0,
+    "category": "salgados",
+    "image": "/images/misto-quente.svg"
+  },
+  {
+    "id": 7,
+    "name": "Hambúrguer",
+    "description": "Hambúrguer artesanal com queijo, alface e tomate.",
+    "price": 16.0,
+    "category": "salgados",
+    "image": "/images/hamburguer.svg"
+  },
+  {
+    "id": 8,
+    "name": "Sanduíche Natural",
+    "description": "Sanduíche natural de frango com salada e pão integral.",
+    "price": 11.0,
+    "category": "salgados",
+    "image": "/images/sanduiche-natural.svg"
+  },
+  {
+    "id": 9,
     "name": "Refrigerante Lata",
     "description": "Refrigerante gelado em lata de 350ml.",
     "price": 6.0,
@@ -48,7 +72,7 @@
     "image": "/images/refrigerante.svg"
   },
   {
-    "id": 7,
+    "id": 10,
     "name": "Suco de Laranja",
     "description": "Suco natural de laranja feito na hora.",
     "price": 8.0,
@@ -56,7 +80,7 @@
     "image": "/images/suco-laranja.svg"
   },
   {
-    "id": 8,
+    "id": 11,
     "name": "Suco de Uva",
     "description": "Suco natural de uva integral, sem açúcar adicionado.",
     "price": 8.0,
@@ -64,7 +88,7 @@
     "image": "/images/suco-uva.svg"
   },
   {
-    "id": 9,
+    "id": 12,
     "name": "Água Mineral",
     "description": "Garrafa de água mineral sem gás de 500ml.",
     "price": 4.0,
@@ -72,7 +96,7 @@
     "image": "/images/agua.svg"
   },
   {
-    "id": 10,
+    "id": 13,
     "name": "Café",
     "description": "Café coado quentinho servido em copo de 200ml.",
     "price": 5.0,
@@ -80,7 +104,15 @@
     "image": "/images/cafe.svg"
   },
   {
-    "id": 11,
+    "id": 14,
+    "name": "Achocolatado",
+    "description": "Achocolatado gelado em caixinha de 200ml.",
+    "price": 6.5,
+    "category": "bebidas",
+    "image": "/images/achocolatado.svg"
+  },
+  {
+    "id": 15,
     "name": "Brigadeiro",
     "description": "Brigadeiro tradicional feito com chocolate e leite condensado.",
     "price": 4.5,
@@ -88,7 +120,7 @@
     "image": "/images/brigadeiro.svg"
   },
   {
-    "id": 12,
+    "id": 16,
     "name": "Brownie",
     "description": "Brownie de chocolate com textura macia e intensa.",
     "price": 7.0,
@@ -96,7 +128,7 @@
     "image": "/images/brownie.svg"
   },
   {
-    "id": 13,
+    "id": 17,
     "name": "Bolo de Cenoura",
     "description": "Fatia de bolo de cenoura com cobertura de chocolate.",
     "price": 6.5,
@@ -104,31 +136,31 @@
     "image": "/images/bolo-cenoura.svg"
   },
   {
-    "id": 14,
-    "name": "Misto Quente",
-    "description": "Pão de forma tostado com presunto e queijo derretido.",
-    "price": 10.0,
-    "category": "lanches",
-    "image": "/images/misto-quente.svg"
+    "id": 18,
+    "name": "Pudim",
+    "description": "Fatia de pudim de leite condensado com calda de caramelo.",
+    "price": 7.5,
+    "category": "doces",
+    "image": "/images/pudim.svg"
   },
   {
-    "id": 15,
-    "name": "Hambúrguer",
-    "description": "Hambúrguer artesanal com queijo, alface e tomate.",
-    "price": 16.0,
-    "category": "lanches",
-    "image": "/images/hamburguer.svg"
+    "id": 19,
+    "name": "Cookie",
+    "description": "Cookie amanteigado com gotas de chocolate meio amargo.",
+    "price": 5.5,
+    "category": "doces",
+    "image": "/images/cookie.svg"
   },
   {
-    "id": 16,
-    "name": "Sanduíche Natural",
-    "description": "Sanduíche natural de frango com salada e pão integral.",
-    "price": 11.0,
-    "category": "lanches",
-    "image": "/images/sanduiche-natural.svg"
+    "id": 20,
+    "name": "Paçoca",
+    "description": "Paçoca artesanal de amendoim, doce e bem esfarelenta.",
+    "price": 3.5,
+    "category": "doces",
+    "image": "/images/pacoca.svg"
   },
   {
-    "id": 17,
+    "id": 21,
     "name": "Combo Coxinha + Refrigerante",
     "description": "Uma coxinha de frango acompanhada de refrigerante em lata.",
     "price": 13.0,
@@ -136,7 +168,7 @@
     "image": "/images/combo-coxinha.svg"
   },
   {
-    "id": 18,
+    "id": 22,
     "name": "Combo Pastel + Suco",
     "description": "Pastel de carne acompanhado de suco natural de laranja.",
     "price": 15.0,
@@ -144,11 +176,19 @@
     "image": "/images/combo-pastel.svg"
   },
   {
-    "id": 19,
+    "id": 23,
     "name": "Combo Misto + Suco",
     "description": "Misto quente acompanhado de suco natural de uva.",
     "price": 16.5,
     "category": "combos",
     "image": "/images/combo-lanche.svg"
+  },
+  {
+    "id": 24,
+    "name": "Combo Pão de Queijo + Café",
+    "description": "Dois pães de queijo acompanhados de um café coado.",
+    "price": 9.0,
+    "category": "combos",
+    "image": "/images/combo-cafe.svg"
   }
 ]
