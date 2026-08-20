@@ -4,7 +4,7 @@ import { ListarProdutos } from "../components/ListarProdutos"
 import { FiltroProdutos } from "../components/FiltroProdutos"
 import { ListarCompra } from "../components/ListarCompra"
 import { ConfirmarCompra } from "../components/ConfirmarCompra"
-import { ReciboCompra, Pedido } from "../components/ReciboCompra"
+import { ReciboCompra, Pedido, Cliente } from "../components/ReciboCompra"
 import { useCarrinhoSalvo } from "../hooks/useCarrinhoSalvo"
 import { montarLinhas, calcularTotal, formatarPreco } from "../utils/carrinho"
 import { CATEGORIA_TODAS } from "../utils/produtos"
@@ -67,11 +67,12 @@ export default function HomePage () {
         );
     }
 
-    function handleConfirmar() {
+    function handleConfirmar(cliente: Cliente) {
         // Guarda uma foto do pedido: numero, data e os itens daquele momento.
         setPedido({
             numero: Math.floor(1000 + Math.random() * 9000),
             data: new Date(),
+            cliente,
             items: carrinho,
         });
     }

@@ -1,9 +1,15 @@
 import { CartItem } from "../types/Product"
 import { montarLinhas, calcularTotal, formatarPreco } from "../utils/carrinho"
 
+export type Cliente = {
+  nome: string;
+  cpf: string;
+};
+
 export type Pedido = {
   numero: number;
   data: Date;
+  cliente: Cliente;
   items: CartItem[];
 };
 
@@ -44,6 +50,13 @@ export function ReciboCompra({ pedido }: ReciboCompraProps) {
       <div className="flex justify-between font-normal">
         <span>Data</span>
         <span>{formatarDataHora(pedido.data)}</span>
+      </div>
+      <div className="flex justify-between gap-2 font-normal">
+        <span>CPF</span>
+        <span>{pedido.cliente.cpf}</span>
+      </div>
+      <div className="mt-1 break-words font-normal">
+        Cliente: {pedido.cliente.nome}
       </div>
 
       <Separador />
