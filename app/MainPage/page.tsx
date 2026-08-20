@@ -61,6 +61,12 @@ export default function HomePage () {
         );
     }
 
+    function handleRemover(productId: number) {
+        setCarrinho((itensAtuais) =>
+            itensAtuais.filter((item) => item.productId !== productId)
+        );
+    }
+
     function handleConfirmar() {
         // Guarda uma foto do pedido: numero, data e os itens daquele momento.
         setPedido({
@@ -139,6 +145,7 @@ export default function HomePage () {
                                     items={carrinho}
                                     onAumentar={handleAumentar}
                                     onDiminuir={handleDiminuir}
+                                    onRemover={handleRemover}
                                     onFinalizar={() => setConfirmando(true)}
                                 />
                             </section>

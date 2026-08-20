@@ -5,13 +5,35 @@ type ListarCompraProps = {
   items: CartItem[];
   onAumentar: (productId: number) => void;
   onDiminuir: (productId: number) => void;
+  onRemover: (productId: number) => void;
   onFinalizar: () => void;
 };
+
+function IconeLixeira() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-4 w-4"
+      aria-hidden="true"
+    >
+      <path d="M3 6h18" />
+      <path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2" />
+      <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
+      <path d="M10 11v6M14 11v6" />
+    </svg>
+  );
+}
 
 export function ListarCompra({
   items,
   onAumentar,
   onDiminuir,
+  onRemover,
   onFinalizar,
 }: ListarCompraProps) {
   const linhas = montarLinhas(items);
@@ -78,9 +100,21 @@ export function ListarCompra({
                 </div>
               </div>
 
-              <span className="shrink-0 text-sm font-semibold text-gray-900">
-                {formatarPreco(linha.product.price * linha.quantity)}
-              </span>
+              <div className="flex shrink-0 flex-col items-end gap-2">
+                <span className="text-sm font-semibold text-gray-900">
+                  {formatarPreco(linha.product.price * linha.quantity)}
+                </span>
+
+                <button
+                  type="button"
+                  onClick={() => onRemover(linha.product.id)}
+                  title="Remover do pedido"
+                  aria-label={`Remover ${linha.product.name} do pedido`}
+                  className="flex h-8 w-8 items-center justify-center rounded-md text-gray-400 transition hover:bg-red-50 hover:text-red-600 active:bg-red-100"
+                >
+                  <IconeLixeira />
+                </button>
+              </div>
             </li>
           ))}
         </ul>
