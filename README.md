@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍔 Cardápio da Cantina
 
-## Getting Started
+Sistema de **Cardápio Digital** desenvolvido para facilitar e agilizar os pedidos dos alunos durante o intervalo escolar.
 
-First, run the development server:
+## 🎯 Objetivo
+
+Permitir que o aluno **monte seu pedido pelo celular antes de chegar ao balcão**, podendo consultar os produtos, escolher as quantidades e conferir o valor total. Assim, o atendimento se torna mais rápido e as filas podem ser reduzidas.
+
+## ✨ Funcionalidades
+
+* 🔎 **Filtro por categoria:** visualizar apenas os produtos desejados, como bebidas, lanches e salgados;
+* 🛒 **Carrinho de pedidos:** adicionar ou remover produtos do pedido;
+* ➕ **Controle de quantidade:** aumentar ou diminuir a quantidade de cada item;
+* 💰 **Cálculo do total:** visualizar o valor total do pedido antes de finalizar;
+* 💾 **Persistência:** manter o pedido salvo mesmo após fechar ou atualizar o navegador;
+* 🎟️ **Número do pedido:** gerar uma identificação para facilitar a organização e retirada do pedido.
+
+## 📋 Requisitos
+
+### Catálogo
+* Produtos exibidos em **cards**, organizados por **abas de categoria** (salgados · bebidas · doces · combos), com campo de **busca**;
+* **Modal de detalhe:** ao clicar em um produto, abre a descrição, o preço e o botão **adicionar**.
+
+### Carrinho
+* Permitir **adicionar, remover e alterar a quantidade** de cada item;
+* Exibir o **subtotal por item** e o **total geral** calculado automaticamente;
+* **Contador de itens** sempre visível no ícone do carrinho.
+
+### Checkout
+* Validar **nome, turma e forma de pagamento** antes de finalizar o pedido;
+* Ao confirmar, gerar o **número do pedido**;
+* Tentar fechar o pedido com o **carrinho vazio** deve exibir um **erro na tela**.
+
+### Dados
+* Base de dados com as entidades **produtos** e **pedidos**;
+* O **carrinho** deve **sobreviver ao F5** (persistido no `localStorage`);
+* **Seed inicial:** 24 produtos distribuídos nas 4 categorias, com preços reais.
+
+## 🛠️ Tecnologias
+
+* **React**
+* **Next.js**
+* **TypeScript**
+* **Tailwind CSS**
+* **localStorage**
+
+## 🚀 Getting Started
+
+Instale as dependências e rode o servidor de desenvolvimento:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Abra [http://localhost:3000/MainPage](http://localhost:3000/MainPage) no navegador para ver o cardápio digital em funcionamento.
