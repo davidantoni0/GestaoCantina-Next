@@ -3,13 +3,17 @@ import { formatarPreco } from "../utils/carrinho";
 
 type CardProdutosProps = {
   product: Product;
-  onAddToCart: (productId: number) => void;
+  onAbrir: (product: Product) => void;
 };
 
-export function CardProdutos({ product, onAddToCart, }: CardProdutosProps) {
+export function CardProdutos({ product, onAbrir, }: CardProdutosProps) {
   return (
-    // h-full + flex: todos os cards da mesma linha ficam com a mesma altura.
-    <article className="flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md">
+    // O card inteiro e um botao: clicar abre o modal com a descricao.
+    <button
+      type="button"
+      onClick={() => onAbrir(product)}
+      className="flex h-full w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white text-left shadow-sm transition hover:border-blue-300 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+    >
       <img
         src={product.image}
         alt={product.name}
@@ -17,30 +21,21 @@ export function CardProdutos({ product, onAddToCart, }: CardProdutosProps) {
       />
 
       <div className="flex flex-1 flex-col gap-2 p-4">
-        <h2 className="text-base font-semibold leading-snug text-gray-900">
+        <span className="text-base font-semibold leading-snug text-gray-900">
           {product.name}
-        </h2>
+        </span>
 
-        <p className="line-clamp-2 text-xs leading-relaxed text-gray-500">
-          {product.description}
-        </p>
+        {/* mt-auto empurra preco e link para a base, alinhando todos os cards */}
+        <div className="mt-auto flex items-center justify-between gap-2 pt-1">
+          <data value={product.price} className="text-lg font-bold text-gray-900">
+            {formatarPreco(product.price)}
+          </data>
 
-        {/* mt-auto empurra preco e botao para a base, alinhando todos os cards */}
-        <data
-          value={product.price}
-          className="mt-auto pt-1 text-lg font-bold text-gray-900"
-        >
-          {formatarPreco(product.price)}
-        </data>
-
-        <button
-          type="button"
-          onClick={() => onAddToCart(product.id)}
-          className="w-full rounded-lg bg-blue-600 px-3 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700 active:bg-blue-800"
-        >
-          Adicionar ao carrinho
-        </button>
+          <span className="text-xs font-medium text-blue-600">
+            Ver detalhes
+          </span>
+        </div>
       </div>
-    </article>
+    </button>
   );
 }
